@@ -1,0 +1,37 @@
+{% load static %}
+<html>
+<head>
+<title>Label it dude </title>
+<link rel="stylesheet" type="text/css" href="{% static 'logic/style.css' %}">
+</head>
+<body>
+
+<a  href="{% url 'load' %}">FIGHT GBV</a>
+<div class="display">
+
+<div class="display-label">
+
+<p class="label">" {{text}} "</p>
+<br>
+<p class="label">Label :  {{label}}</p>
+
+</div>
+<form class="choices-label" action="{% url 'read' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <a href="{% url 'label' label='NON SEXIST'%}">NON SEXIST<a/>
+    <a href="{% url 'label' label='DOUBTFUL' %}">DOUBTFUL<a/>
+    <a href="{% url 'label' label='MALE DOMINANCE' %}">MALE DOMINANCE<a/>
+    <a href="{% url 'label' label='IDEOLOGICAL-DISCREDIT' %}">IDEOLOGICAL-DISCREDIT<a/>
+    <a href="{% url 'label' label="INFERIORITY OR INCAPACITY" %}">INFERIORITY/INCAPACITY<a/>
+    <a href="{% url 'label' label='HATE AND VIOLENCE' %}">HATE AND VIOLENCE<a/>
+    <a href="{% url 'label' label='PHYSICAL STEREOTYPING' %}">PHYSICAL STEREOTYPING<a/>
+    <a href="{% url 'label' label='SEXUALIZATION' %}">SEXUALIZATION<a/>
+    <a href="{% url 'label' label='ROLE-STEREOTYPING' %}">ROLE-STEREOTYPING<a/>
+</form>
+</div>
+<div class="menu">
+<a href="{% url 'prev'%}">prev</a>
+<a href="{% url 'next'%}">next</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% load static %}
+<html>
+<head>
+<title>Label it dude </title>
+<link rel="stylesheet" type="text/css" href="{% static 'logic/style.css' %}">
+</head>
+<body>
+
+<a  class="title" href="{% url 'load' %}">FIGHT GBV</a>
+<form action="{% url 'read' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <label>Import your dataset</label>
+
+    <div class="custom-file">
+    <input type="file" name="dataset"/><br>
+    </div>
+    <input type="submit" value="Upload the sexism dataset" />
+</form>
+
+</body>
+</html>
